@@ -26,3 +26,17 @@ if __name__ == '__main__':
     class_obj.named_const_1_param(2)
     class_obj.named_const_2_param(1)
     Random.greet("Hello")
+
+
+print("---------------------------------------------------------------------------")
+def foo(a, b=3, *args, **kwargs):
+  defaultKwargs = { 'c': 10, 'd': 12 }
+  kwargs = { **defaultKwargs, **kwargs }
+  
+  print(a, b, args, kwargs)
+  
+  # Do something else
+
+foo(1) # 1 3 () {'c': 10, 'd': 12}
+foo(1, d=5) # 1 3 () {'c': 10, 'd': 5}
+foo(1, 2, 4, d=5) # 1 2 (4,) {'c': 10, 'd': 5}
