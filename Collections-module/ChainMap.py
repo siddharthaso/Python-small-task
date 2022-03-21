@@ -1,10 +1,11 @@
 #######################################-------------Chaining Dictionaries Together: ChainMap------------------########################################
 
-"""     Python's ChainMap groups multiple dictionaries and other mappings together to create a single object that works pretty much like a regular dictionary. 
+"""     
+        Python's ChainMap groups multiple dictionaries and other mappings together to create a single object that works pretty much like a regular dictionary. 
 In other words, it takes several mappings and makes them logically appear as one.
-    ChainMap objects are updateable views, which means that changes in any of the chained mappings affect the ChainMap object as a whole. 
-This is because ChainMap doesn't merge the input mappings together. It keeps a list of mappings and reimplements common dictionary operations on top of 
-that list. For example, a key lookup searches the list of mappings successively until it finds the key.
+        ChainMap objects are updateable views, which means that changes in any of the chained mappings affect the ChainMap object as a whole. This is because 
+ChainMap doesn't merge the input mappings together. It keeps a list of mappings and reimplements common dictionary operations on top of that list. For example,
+a key lookup searches the list of mappings successively until it finds the key.
 
 Note: Check out Python's ChainMap: Manage Multiple Contexts Effectively for a deeper dive into using ChainMap in your Python code.
 When you're working with ChainMap objects, you can have several dictionaries with either unique or repeated keys.
@@ -26,13 +27,12 @@ the next configuration object, and so on. This is one of the most common use cas
 
 from collections import ChainMap
 
-cmd_proxy = {}                          # The user doesn't provide a proxy
+cmd_proxy = {}                                  # The user doesn't provide a proxy
 local_proxy = {"proxy": "proxy.local.com"}
 global_proxy = {"proxy": "proxy.global.com"}
 
 config = ChainMap(cmd_proxy, local_proxy, global_proxy)
-print(config["proxy"])                   #'proxy.local.com'
-
+print(config["proxy"])                          #'proxy.local.com'
 
 
 """ ChainMap allows you to define the appropriate priority for the application's proxy configuration. A key lookup searches cmd_proxy, then local_proxy, 
@@ -78,8 +78,6 @@ need to skip the first map in a key lookup.
 A final feature to highlight in ChainMap is that mutating operations, such as updating keys, adding new keys, deleting existing keys, popping keys, 
 and clearing the dictionary, act on the first mapping in the internal list of mappings: """
 
-from collections import ChainMap
-
 numbers = {"one": 1, "two": 2}
 letters = {"a": "A", "b": "B"}
 
@@ -88,10 +86,10 @@ print(alpha_nums)                       #ChainMap({'one': 1, 'two': 2}, {'a': 'A
 
 # Add a new key-value pair
 alpha_nums["c"] = "C"
-print(alpha_nums)                   #ChainMap({'one': 1, 'two': 2, 'c': 'C'}, {'a': 'A', 'b': 'B'})
+print(alpha_nums)                       #ChainMap({'one': 1, 'two': 2, 'c': 'C'}, {'a': 'A', 'b': 'B'})
 
 # Pop a key that exists in the first dictionary
-print(alpha_nums.pop("two"))               #2
+print(alpha_nums.pop("two"))            #2
 
 print(alpha_nums)                       #ChainMap({'one': 1, 'c': 'C'}, {'a': 'A', 'b': 'B'})
 

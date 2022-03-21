@@ -24,9 +24,9 @@ for stage, years in life_stages.items():
 """ There are some features of OrderedDict that still make it valuable:
 
     Intent communication: With OrderedDict, your code will make it clear that the order of items in the dictionary is important. 
-                            You’re clearly communicating that your code needs or relies on the order of items in the underlying dictionary.
+                            You're clearly communicating that your code needs or relies on the order of items in the underlying dictionary.
     Control over the order of items: With OrderedDict, you have access to .move_to_end(), which is a method that allows you to manipulate 
-                            the order of items in your dictionary. You’ll also have an enhanced variation of .popitem() that allows removing items 
+                            the order of items in your dictionary. You'll also have an enhanced variation of .popitem() that allows removing items 
                             from either end of the underlying dictionary.
     Equality test behavior: With OrderedDict, equality tests between dictionaries take the order of items into account. So, if you have two ordered 
                             dictionaries with the same group of items but in a different order, then your dictionaries will be considered non-equal.

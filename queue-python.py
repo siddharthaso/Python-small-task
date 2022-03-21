@@ -24,7 +24,7 @@ print(q2.empty())        #True
 q2.put(10)
 q2.put(34)
 print(q2.full())        #True
-print(q2.get())
+print(q2.get())         #10
 print(q2.full())        #False
 
 print("-----------------------------------------------------------------------------")
@@ -43,7 +43,7 @@ print(q2.empty())        #True
 q2.put(10)
 q2.put(34)
 print(q2.full())        #True
-print(q2.get())
+print(q2.get())         #34
 print(q2.full())        #False
 
 

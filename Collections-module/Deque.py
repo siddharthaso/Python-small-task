@@ -22,80 +22,73 @@ print('-------------------------------------------------------------------------
 mq = deque([1,2,3], maxlen=3)
 mq.append(4)
 print(mq)   #deque([2, 3, 4], maxlen=3)
+
 # Once the deque reaches its maximum size (three files in this case), adding a new file on an end of the deque automatically discards the file at 
 # the opposite end. If you don't supply a value to maxlen, then the deque can grow to an arbitrary number of items.
 
-""" 
->>> from collections import deque
 
->>> # Use different iterables to create deques
->>> deque((1, 2, 3, 4))
-deque([1, 2, 3, 4])
+print('-------------------------------------------------------------------------------------------------')
 
->>> deque([1, 2, 3, 4])
-deque([1, 2, 3, 4])
+# Use different iterables to create deques
+print(deque((1, 2, 3, 4)))           #deque([1, 2, 3, 4])
+print(deque([1, 2, 3, 4]))           #deque([1, 2, 3, 4])
+print(deque("abcd"))           #deque(['a', 'b', 'c', 'd'])
 
->>> deque("abcd")
-deque(['a', 'b', 'c', 'd'])
-
->>> # Unlike lists, deque doesn't support .pop() with arbitrary indices
->>> deque("abcd").pop(2)
+# Unlike lists, deque doesn't support .pop() with arbitrary indices
+""" deque("abcd").pop(2)
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
-TypeError: pop() takes no arguments (1 given)
+TypeError: pop() takes no arguments (1 given) """
 
->>> # Extend an existing deque
->>> numbers = deque([1, 2])
->>> numbers.extend([3, 4, 5])
->>> numbers
-deque([1, 2, 3, 4, 5])
+# Extend an existing deque
+numbers = deque([1, 2])
 
->>> numbers.extendleft([-1, -2, -3, -4, -5])
->>> numbers
-deque([-5, -4, -3, -2, -1, 1, 2, 3, 4, 5])
+numbers.extend([3, 4, 5])
+print(numbers)                 #deque([1, 2, 3, 4, 5])
 
->>> # Insert an item at a given position
->>> numbers.insert(5, 0)
->>> numbers
-deque([-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5])
+numbers.extendleft([-1, -2, -3, -4, -5])
+print(numbers)                 #deque([-5, -4, -3, -2, -1, 1, 2, 3, 4, 5])
 
-Deques also support sequence operations:
+# Insert an item at a given position
+numbers.insert(5, 0)
+print(numbers)                 #deque([-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5])
+
+
+"""Deques also support sequence operations:
 
 Method	Description
 .clear()	Remove all the elements from a deque
 .copy()	Create a shallow copy of a deque
 .count(x)	Count the number of deque elements equal to x
 .remove(value)	Remove the first occurrence of value
+"""
 
->>> from collections import deque
+print('-------------------------------------------------------------------------------------------------')
+ordinals = deque(["first", "second", "third"])
 
->>> ordinals = deque(["first", "second", "third"])
->>> ordinals.rotate()
->>> ordinals
-deque(['third', 'first', 'second'])
+ordinals.rotate()
+print(ordinals)                    #deque(['third', 'first', 'second'])
 
->>> ordinals.rotate(2)
->>> ordinals
-deque(['first', 'second', 'third'])
+ordinals.rotate(2)
+print(ordinals)                #deque(['first', 'second', 'third'])
 
->>> ordinals.rotate(-2)
->>> ordinals
-deque(['third', 'first', 'second'])
+ordinals.rotate(-2)
+print(ordinals)                      #deque(['third', 'first', 'second'])
 
->>> ordinals.rotate(-1)
->>> ordinals
-deque(['first', 'second', 'third'])
+ordinals.rotate(-1)
+print(ordinals)                    #deque(['first', 'second', 'third'])
+
+""" 
 This method rotates the deque n steps to the right. The default value of n is 1. If you provide a negative value to n, then the rotation is to the left.
 
 Finally, you can use indices to access the elements in a deque, but you can't slice a deque:
+ """
 
->>> from collections import deque
+ordinals = deque(["first", "second", "third"])
+print(ordinals[1])          #'second'
 
->>> ordinals = deque(["first", "second", "third"])
->>> ordinals[1]
-'second'
 
->>> ordinals[0:2]
+""" ordinals[0:2]
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
 TypeError: sequence index must be integer, not 'slice' """
