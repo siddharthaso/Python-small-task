@@ -6,10 +6,10 @@ Every anonymous function you define in Python will have 3 essential parts:
     The parameters (or bound variables), and
     The function body.
  """
-
+ 
+import pdb
 
 #What a lambda returns
-from numpy import square
 
 string="some kind of a useless lambda"
 print(lambda string : print(string))
@@ -73,7 +73,9 @@ factorial = lambda n: 1 if n==1 else n * factorial(n-1)
 print(factorial(5))
 
 fact = lambda x: x == 0 and 1 or x * fact(x-1)
+print(fact(5))
 fact = lambda x: x == 0 or x * fact(x-1)
+print(fact(5))
 fact = lambda x: x==1 or x * fact(x-1)
 print(fact(5))
 
@@ -85,6 +87,9 @@ print(fact(5))
 # Something Out of the blue--------
 print("----------------------------------------------------------------------------------")
 x= lambda x:x==1 and 2
+pdb.set_trace()
+
+# print(x)
 print(x(-1))           #False
 print(x(0))            #False
 print(x(1))            #2
