@@ -75,7 +75,7 @@ print(r_dict['form'])           #{'password': 'testing', 'username': 'siddharth'
 
 
 ar = requests.get('https://httpbin.org/basic-auth/sidd/1234', auth=('sidd',1234))
-print(ar.text)
+print("78",ar)
 """ {
   "authenticated": true, 
   "user": "sidd"
@@ -110,16 +110,14 @@ for url in ['https://api.github.com', 'https://api.github.com/invalid']:
 
 
 
->>> requests.post('https://httpbin.org/post', data={'key':'value'})
->>> requests.put('https://httpbin.org/put', data={'key':'value'})
->>> requests.delete('https://httpbin.org/delete')
->>> requests.head('https://httpbin.org/get')
->>> requests.patch('https://httpbin.org/patch', data={'key':'value'})
->>> requests.options('https://httpbin.org/get')
+requests.post('https://httpbin.org/post', data={'key':'value'})
+requests.put('https://httpbin.org/put', data={'key':'value'})
+requests.delete('https://httpbin.org/delete')
+requests.head('https://httpbin.org/get')
+requests.patch('https://httpbin.org/patch', data={'key':'value'})
+requests.options('https://httpbin.org/get')                     #response = requests.head('https://httpbin.org/get')
 
-response = requests.head('https://httpbin.org/get')
-
->>> response.headers['Content-Type']            #'application/json'
->>> response = requests.delete('https://httpbin.org/delete')
->>> json_response = response.json()
->>> json_response['args']
+response.headers['Content-Type']                                #'application/json'
+response = requests.delete('https://httpbin.org/delete')
+json_response = response.json()
+json_response['args']

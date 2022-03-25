@@ -1,6 +1,7 @@
 *.pyc
 datetime.cpython-38.pyc
 
+**/.ipynb_checkpoints/
 **/__pycache__/
 
 #  Ignoring a previously committed file
