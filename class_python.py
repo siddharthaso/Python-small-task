@@ -27,3 +27,7 @@ def main():
     obj2 = Demo()
 
 main()
+
+# Derived_Demo's __new__() invoked
+# Demo's __init__() invoked
+# Demo's __new__() invoked
